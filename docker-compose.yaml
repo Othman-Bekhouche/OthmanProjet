@@ -30,7 +30,8 @@ services:
       - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
-      - ./docker/db/mariadb/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./docker/db/mariadb/*:/etc/mysql/conf.d/
+      
     networks:
       - eheio-network
 
