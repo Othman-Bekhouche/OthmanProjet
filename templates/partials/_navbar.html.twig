@@ -1,0 +1,44 @@
+<style>
+/* 1. Rendre la liste horizontale (Nav Bar classique) */
+nav ul {
+    list-style-type: none; /* Enlève les puces de liste */
+    margin: 0;
+    padding: 0;
+    background-color: #333; /* Couleur de fond sombre */
+    overflow: hidden; /* S'assure que tout est contenu */
+}
+
+/* 2. Disposer les éléments de liste horizontalement */
+nav li {
+    float: left; /* Fait flotter les éléments côte à côte */
+}
+
+/* 3. Styliser les liens */
+nav li a {
+    display: block; /* Rendre le lien cliquable sur toute la zone du li */
+    color: white; /* Couleur du texte */
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none; /* Enlève le soulignement par défaut */
+}
+
+/* 4. Effet de survol (Hover) */
+nav li a:hover {
+    background-color: #555; /* Couleur de fond légèrement plus claire au survol */
+}
+
+/* 5. Style pour le lien actif (sur la page courante) */
+.active {
+    background-color: #04AA6D; /* Couleur de mise en évidence */
+}
+</style>
+
+{# Votre structure HTML Twig #}
+<nav>
+    <ul>
+        <li><a class="active" href="{{path(('app_home'))}}">Accueil</a></li> 
+        <li><a href="{{path(('app_produit'))}}">Produits</a></li>
+        <li><a href="{{path(('app_a_propos'))}}">À Propos</a></li>
+        <li><a href="{{path(('app_contact'))}}">Contact</a></li>
+    </ul>
+</nav>
