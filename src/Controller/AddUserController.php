@@ -4,22 +4,21 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Routing\Annotation\Route;
+use App\Form\UserType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use App\Entity\User;
 
 class AddUserController extends AbstractController
 {
-    #[Route('/add/user', name: 'app_add_user')]
+    #[Route('/add-user', name: 'app_add_user')]
     public function index(): Response
     {
-
-        $user= new user (); 
-        
-        $userForm= $this->createForm(type:UserType::class, data:$user);
-        
-
+        $user = new User();
+        $userForm = $this->createForm(UserType::class, $user);
 
         return $this->render('add_user/index.html.twig', [
-            'controller_name' => 'AddUserController',
+            "userForm" => $userForm
         ]);
     }
-    }
+}

@@ -1,0 +1,32 @@
+version: '3.7'
+services:
+db:
+image: mysql:latest
+restart: always
+environment:
+MYSQL_DATABASE: db_name
+MYSQL_USER: db_username
+MYSQL_PASSWORD: db_password
+MYSQL_ROOT_PASSWORD: mysql_root_password
+volumes:
+- mysql_data:/var/lib/mysql
+networks:
+- app-network
+phpmyadmin:
+image: phpmyadmin/phpmyadmin:latest
+restart: always
+environment:
+PMA_HOST: db
+MYSQL_ROOT_PASSWORD: mysql_root_password
+ports:
+- '8081:80'
+networks:
+- app-network
+networks:
+app-network:
+driver: bridge
+volumes:
+mysql_data:
+docker compose up -d
+docker compose down
+docker compose ls
