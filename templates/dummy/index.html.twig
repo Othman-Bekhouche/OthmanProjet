@@ -3,10 +3,13 @@
 {% block title %}{{ parent() }} - Hello Home!{% endblock %}
 
 {% block body %}
+    {{ include('partials/_navbar.html.twig') }}
+
     <div class="example-wrapper">
         <h1>{{ text }}</h1>
 
         <ul>
+            {# Boucle pour parcourir le tableau years  #}
             {% for year in years %}
                 <li>{{ year }}</li>
             {% endfor %}
